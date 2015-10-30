@@ -1,3 +1,4 @@
+import logging
 from django.db import models
 
 
@@ -13,7 +14,6 @@ class University(models.Model):
 	year_founded = models.CharField(max_length="100", null=True, blank=True)
 
 	# Student Information
-	student_population = models.IntegerField(null=True, blank=True)
 	student_sum = models.CharField(max_length="100", null=True, blank=True)
 	male_female_ratio = models.CharField(max_length="20", null=True, blank=True)
 	local_international_ratio = models.CharField(max_length="20", null=True, blank=True)
@@ -33,6 +33,7 @@ class University(models.Model):
 	awards = models.TextField(null=True, blank=True)
 	disclaimer = models.TextField(null=True, blank=True)
 	additional_info = models.TextField(null=True, blank=True)
+	student_population = models.IntegerField(null=True, blank=True)
 
 	location = models.CharField(max_length="100", null=True, blank=True)
 	detail_location = models.CharField(max_length="100", null=True, blank=True)
@@ -57,4 +58,15 @@ class University(models.Model):
 
 	def __unicode__(self):
 		return self.name
+
+	@classmethod
+	def create_new_university(cls, name=None, **extra):
+		try:
+			return cls.objects.create(name=name, **extra)
+		except Exception, e:
+			logging.error(e)
+			raise
+
+
+
 

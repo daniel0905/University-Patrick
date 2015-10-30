@@ -1,3 +1,4 @@
+import logging
 from django.db import models
 from university import University
 
@@ -15,3 +16,11 @@ class LinkedIn(models.Model):
 
 	def __unicode__(self):
 		return self.title
+
+	@classmethod
+	def create_new_linkedin(cls, **extra):
+		try:
+			return cls.objects.create(**extra)
+		except Exception, e:
+			logging.error(e)
+			raise
