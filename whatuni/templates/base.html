@@ -1,0 +1,75 @@
+{% load staticfiles %}
+{% load url from future %}
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+	<head>
+		<meta charset="utf-8" />
+		<title>Highest ranking Unis for Law Degrees</title>
+		{% block viewport %}
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		{% endblock %}
+
+		{% block style %}
+			<link href="{% static "bootstrap/css/bootstrap.css" %}" rel="stylesheet">
+			<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+			{% block extra_style %}{% endblock %}
+			{% endblock %}
+
+			{% block extra_head_base %}
+			{% block extra_head %}{% endblock %}
+		{% endblock %}
+
+		<style>
+			html, body {
+				height: 100%;
+			}
+			body {
+				font-size: 13px;
+			}
+			.content {
+				background-color: white;
+				padding-top: 15px;
+				padding-bottom: 15px;
+			}
+		</style>
+	</head>
+	<body class="{% block body_class %}{% endblock %}" id="{% block body_id %}{% endblock %}">
+		<div class="{% block wrapper_class %}{% endblock %} child-body" style="position: relative; min-height: 100%">
+
+			{% block topbar_base %}
+				<header id="header">
+					{% block header %}
+						{% include "_header.html" %}
+					{% endblock %}
+				</header>
+			{% endblock %}
+
+			<div id="content" class="container content" style="margin-bottom: 20px">
+				{% include "_messages_common.html" %}
+				{% block body_base %}
+				{% endblock %}
+			</div>
+
+			{% block endbar_base %}
+				<footer id="footer">
+					{% block footer %}
+						{% include "_footer.html" %}
+					{% endblock %}
+				</footer>
+			{% endblock %}
+
+		</div>
+
+		{% block scripts %}
+			<script src="{% block jquery_src %}{% static "jquery/js/jquery-2.1.4.min.js" %}{% endblock %}"></script>
+			<script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+			{% block extra_script %}{% endblock %}
+		{% endblock %}
+
+		{% block extra_body_base %}
+			{% block extra_body %}{% endblock %}
+		{% endblock %}
+	</body>
+</html>

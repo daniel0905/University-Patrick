@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% load i18n %}
+{% load url from future %}
+
+{% block body_base %}
+	<div class="col-md-10" style="padding: 0px">
+		<ol class="breadcrumb" style="font-size: 12px">
+			<li><a href="#"><i class="glyphicon glyphicon-home"></i>&nbsp;&nbsp;&nbsp;Home</a></li>
+			<li><a href="#">Universities</a></li>
+		</ol>
+		<div class="row">
+			<div class="col-md-12" style="color: #707070">
+				<h2 style="margin-top: 0px">Universities</h2>
+				<span>There are {{ object_list|length }} universities in the world</span>
+				<span>
+					<button class="btn btn-primary pull-right" style="margin-bottom: 10px; margin-top: -15px">FAQ / Click me!</button>
+				</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12" >
+				<div class="search-personality" style="color: #707070; background-color: #ffffcc; padding: 10px; float:left; width: 100%">
+					<img class="col-md-2" src="{% static 'bootstrap/img/pys.png' %}">
+					<div class="search-detail col-md-10">
+						<div class="col-md-6">
+							<form method="get">
+								<label>Courses Requirements</label>
+								<input id="courses_requirement" type="text" placeholder="Example: A, B, C, D...." class="nav-search-input form-control" name="search_courses_requirement">
+							</form>
+						</div>
+						<div class="col-md-3">
+							<label>Name Of University</label>
+							<input id="school" type="text" placeholder="Example: Nottingham..." class="nav-search-input form-control" name="search_school" autocomplete="off" data-provide="typeahead" data-items="10">
+						</div>
+						<div class="col-md-3">
+							<label>Name Of Courses</label>
+							<input id="course" type="text" placeholder="Example: English A..." class="nav-search-input form-control" name="search_course" autocomplete="off" data-provide="typeahead" data-items="10">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-md-2" style="background-color: #f2f2f2">
+					<style>
+						ul.sub_lik > li > a, span.shde {
+							color: #868686
+						}
+						ul.sub_lik > li{
+							padding-top: 15px
+						}
+					</style>
+					<ul style="list-style: none; padding-left: 0px; margin-top: 10px; margin-bottom: 20px" class="sub_lik num">
+						<li class="stud fl-act">
+							<span class="act_bg"></span><span class="sbj-act">All Law</span>
+							<span class="fr">(1207)</span>
+						</li>
+						<li>
+							<a onclick="searchEventTracking('filter','subject','american law');" href="/degrees/courses/degree-courses/american-law-degree-courses-united-kingdom/m/united+kingdom/r/9214/page.html">American Law </a>
+							<span class="shde">(2)</span>
+						</li>
+						<li>
+							<a onclick="searchEventTracking('filter','subject','asian law');" href="/degrees/courses/degree-courses/asian-law-degree-courses-united-kingdom/m/united+kingdom/r/9215/page.html">Asian Law </a>
+							<span class="shde">(1)</span>
+						</li>
+						<li>
+							<a onclick="searchEventTracking('filter','subject','business law');" href="/degrees/courses/degree-courses/business-law-degree-courses-united-kingdom/m/united+kingdom/r/19465/page.html">Business Law </a>
+							<span class="shde">(1207)</span>
+						</li>
+						<li>
+							<a onclick="searchEventTracking('filter','subject','childrens law');" href="/degrees/courses/degree-courses/childrens-law-degree-courses-united-kingdom/m/united+kingdom/r/9234/page.html">Childrens Law </a>
+							<span class="shde">(9)</span>
+						</li>
+						<li>
+							<a onclick="searchEventTracking('filter','subject','civil law');" href="/degrees/courses/degree-courses/civil-law-degree-courses-united-kingdom/m/united+kingdom/r/9200/page.html">Civil Law </a>
+							<span class="shde">(86)</span>
+						</li>
+						<li>
+							<a onclick="searchEventTracking('filter','subject','company law');" href="/degrees/courses/degree-courses/company-law-degree-courses-united-kingdom/m/united+kingdom/r/9227/page.html">Company Law </a>
+							<span class="shde">(71)</span>
+						</li>
+						<li>
+							<a onclick="searchEventTracking('filter','subject','constitutional / public law');" href="/degrees/courses/degree-courses/constitutional-public-law-degree-courses-united-kingdom/m/united+kingdom/r/9201/page.html">Constitutional / Public Law </a>
+							<span class="shde">(32)</span>
+						</li>
+						<li>
+							<a onclick="searchEventTracking('filter','subject','criminal law');" href="/degrees/courses/degree-courses/criminal-law-degree-courses-united-kingdom/m/united+kingdom/r/9202/page.html">Criminal Law </a>
+							<span class="shde">(92)</span>
+						</li>
+						<li>
+							<a onclick="searchEventTracking('filter','subject','english law');" href="/degrees/courses/degree-courses/english-law-degree-courses-united-kingdom/m/united+kingdom/r/9220/page.html">English Law </a>
+							<span class="shde">(14)</span>
+						</li>
+						<li>
+							<a onclick="searchEventTracking('filter','subject','european law');" href="/degrees/courses/degree-courses/european-law-degree-courses-united-kingdom/m/united+kingdom/r/9217/page.html">European Law </a>
+							<span class="shde">(56)</span>
+						</li>
+						<li>
+							<a onclick="searchEventTracking('filter','subject','european union law');" href="/degrees/courses/degree-courses/european-union-law-degree-courses-united-kingdom/m/united+kingdom/r/9218/page.html">European Union Law </a>
+							<span class="shde">(1)</span>
+						</li>
+						<li>
+							<a onclick="searchEventTracking('filter','subject','family law');" href="/degrees/courses/degree-courses/family-law-degree-courses-united-kingdom/m/united+kingdom/r/9230/page.html">Family Law </a>
+							<span class="shde">(11)</span>
+						</li>
+						<li>
+							<a onclick="searchEventTracking('filter','subject','international law');" href="/degrees/courses/degree-courses/international-law-degree-courses-united-kingdom/m/united+kingdom/r/9203/page.html">International Law </a>
+							<span class="shde">(27)</span>
+						</li>
+						<li>
+							<a onclick="searchEventTracking('filter','subject','law / legal studies');" href="/degrees/courses/degree-courses/law-legal-studies-degree-courses-united-kingdom/m/united+kingdom/r/9204/page.html">Law / Legal Studies </a>
+							<span class="shde">(119)</span>
+						</li>
+						<li>
+							<a onclick="searchEventTracking('filter','subject','legal practice');" href="/degrees/courses/degree-courses/legal-practice-degree-courses-united-kingdom/m/united+kingdom/r/9206/page.html">Legal Practice </a>
+							<span class="shde">(8)</span>
+						</li>
+						<li>
+							<a onclick="searchEventTracking('filter','subject','legal rights (law)');" href="/degrees/courses/degree-courses/legal-rights-law-degree-courses-united-kingdom/m/united+kingdom/r/9225/page.html">Legal Rights (Law) </a>
+							<span class="shde">(30)</span>
+						</li>
+						<li>
+							<a onclick="searchEventTracking('filter','subject','maritime law');" href="/degrees/courses/degree-courses/maritime-law-degree-courses-united-kingdom/m/united+kingdom/r/9212/page.html">Maritime Law </a>
+							<span class="shde">(2)</span>
+						</li>
+						<li>
+							<a onclick="searchEventTracking('filter','subject','media law');" href="/degrees/courses/degree-courses/media-law-degree-courses-united-kingdom/m/united+kingdom/r/9226/page.html">Media Law </a>
+							<span class="shde">(1)</span>
+						</li>
+						<li>
+							<a onclick="searchEventTracking('filter','subject','property law');" href="/degrees/courses/degree-courses/property-law-degree-courses-united-kingdom/m/united+kingdom/r/9232/page.html">Property Law </a>
+							<span class="shde">(1)</span>
+						</li>
+						<li>
+							<a onclick="searchEventTracking('filter','subject','united kingdom law');" href="/degrees/courses/degree-courses/united-kingdom-law-degree-courses-united-kingdom/m/united+kingdom/r/9199/page.html">United Kingdom Law </a>
+							<span class="shde">(17)</span>
+						</li>
+						<li>
+							<a onclick="searchEventTracking('filter','subject','welfare law');" href="/degrees/courses/degree-courses/welfare-law-degree-courses-united-kingdom/m/united+kingdom/r/9235/page.html">Welfare Law </a>
+							<span class="shde">(1)</span>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-10">
+					{% block detail_university %}
+					{% endblock %}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-2">
+		<img src="https://tpc.googlesyndication.com/simgad/2941798359771756363" border="0" width="160" height="600" alt="" class="img_ad">
+	</div>
+{% endblock %}
