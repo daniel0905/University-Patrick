@@ -14,8 +14,9 @@ def import_data_easyuni(request):
 				uni_file_path = os.path.join(page_folder_path, file_name)
 				wb = load_workbook(uni_file_path)
 				university_sheet = wb["university"]
-				university = import_university_information(university_sheet)
 
+				# Import data to Database
+				university = import_university_information(university_sheet)
 				if university:
 					course_sheet = wb["courses"]
 					video_sheet = wb["video"]
@@ -56,7 +57,6 @@ def import_university_information(university_sheet):
 	university_info["disclaimer"] = university_sheet.cell("S2").value
 
 	university = University.create_new_university(name=name_university, **university_info)
-
 	return university
 
 def import_reason(university, university_sheet):
@@ -67,7 +67,7 @@ def import_reason(university, university_sheet):
 			reason_info["university"] = university
 			reason_info["title"] = university_sheet.columns[20][x].value
 			reason_info["content"] = university_sheet.columns[21][x].value
-			Reason.create_new_reason(reason_info)
+			Reason.create_new_reason(**reason_info)
 		else:
 			break
 
@@ -75,7 +75,7 @@ def import_course(university, course_sheet):
 	# FIXME: Change University Course in here
 	courses = course_sheet.columns[0]
 	if len(courses) > 1:
-		for x in range(1, len(courses)+1):
+		for x in range(1, len(courses)):
 			course_info = dict()
 			course_info["university"] = university
 			course_info["name"] = course_sheet.columns[1][x].value
@@ -94,33 +94,33 @@ def import_course(university, course_sheet):
 			course_info["tuition_fee_inter_entire"] = course_sheet.columns[11][x].value
 			course_info["other_costs"] = course_sheet.columns[12][x].value
 
-			Course.create_new_course(course_info)
+			Course.create_new_course(**course_info)
 
 def import_video(university, video_sheet):
 	# FIXME: Change University Video in here
 	videos = video_sheet.columns[0]
 	if len(videos) > 1:
-		for x in range(1, len(videos)+1):
+		for x in range(1, len(videos)):
 			video_info = dict()
 			video_info["university"] = university
 			video_info["title"] = video_sheet.columns[0][x].value
 			video_info["url"] = video_sheet.columns[1][x].value
 
-			Video.create_new_video(video_info)
+			Video.create_new_video(**video_info)
 
 
 def import_linkedin(university, linkedin_sheet):
 	# FIXME: Change University Linkedin in here
 	linkedin = linkedin_sheet.columns[0]
 	if len(linkedin) > 1:
-		for x in range(1, len(linkedin)+1):
+		for x in range(1, len(linkedin)):
 			linkedin_info = dict()
 			linkedin_info["university"] = university
 			linkedin_info["group_linkedin"] = linkedin_sheet.columns[0][x].value
 			linkedin_info["title"] = linkedin_sheet.columns[1][x].value
 			linkedin_info["count"] = linkedin_sheet.columns[2][x].value
 
-			LinkedIn.create_new_linkedin(linkedin_info)
+			LinkedIn.create_new_linkedin(**linkedin_info)
 
 
 
