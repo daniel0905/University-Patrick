@@ -17,6 +17,7 @@ def import_data_cucas(request):
 				wb = load_workbook(uni_file_path)
 				university_sheet = wb["University"]
 
+				# Import data to Database
 				logging.warning(file_name[0])
 				university = import_university_information(university_sheet)
 				if university:
