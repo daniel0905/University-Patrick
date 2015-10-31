@@ -1,3 +1,4 @@
+import logging
 from django.db import models
 from university import University
 
@@ -48,3 +49,11 @@ class Course(models.Model):
 
 	def __unicode__(self):
 		return self.name
+
+	@classmethod
+	def create_new_course(cls, **extra):
+		try:
+			return cls.objects.create(**extra)
+		except Exception, e:
+			logging.error(e)
+			raise

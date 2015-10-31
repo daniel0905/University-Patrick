@@ -155,7 +155,8 @@ INSTALLED_APPS = [
 
 	# project
 	"whatuni",
-	"university"
+	"university",
+	"read_excel_data"
 ]
 
 # A sample logging configuration. The only tangible logging

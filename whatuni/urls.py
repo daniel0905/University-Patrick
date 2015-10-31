@@ -5,5 +5,9 @@ urlpatterns = patterns(
 	url(
 		r"^universities/",
 		include('university.urls')
+	),
+	url(
+		r"^read_excel_data/",
+		include('read_excel_data.urls')
 	)
 )
