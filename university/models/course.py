@@ -36,7 +36,7 @@ class Course(models.Model):
 	# Other Information
 	qualification_awarded = models.CharField(max_length="200", null=True, blank=True)
 	language = models.CharField(max_length="200", null=True, blank=True)
-	starting_integer = models.CharField(max_length="200", null=True, blank=True)
+	starting_date = models.CharField(max_length="200", null=True, blank=True)
 	application_deadline = models.CharField(max_length="200", null=True, blank=True)
 	application_fee = models.CharField(max_length="200", null=True, blank=True)
 	academic_requirement = models.CharField(max_length="200", null=True, blank=True)
